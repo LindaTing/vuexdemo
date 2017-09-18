@@ -42,6 +42,14 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 * telephone:iPhone会自动把你这个文字加链接样式、并且点击这个数字还会自动拨号！
 * email:告诉设备不识别邮箱，点击之后不自动发送
 * adress:禁止跳转至地图
+```
+<meta name="full-screen" content="yes">
+```
+* uc强制全屏
+```
+<meta name="x5-fullscreen" content="true">
+```
+* qq强制全屏
 
 ## 目录结构
 |——page 页面
@@ -69,3 +77,16 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 3. 局部组件components是对象  components拼写（易错写conpontent）
 4. 路由：index.html中内容由路由app提供，所以要有<router-view></router-view>,app.vue中有子路由，也要有<router-view></router-view>
 5. 父组件中给子组件传值时，传值的必须是data中定义的数据，不能是字符串 :component-father="componentFather"
+6. main.js引入common.less报错：
+ * 使用less语法，报get error（404） 说明没有安装less、less-loader 解决：cnpm install less less-loader -D
+	```
+	import './assets/less/common.less'
+	```
+7. computed:mapState(['level','itemNum','itemDetail'])不能使用es6的扩展字符”...“
+
+## rem单位的使用
+* 通过rem.js计算设备的分辨率，从而设置根元素html的字体大小,达到rem自适应字体大小。
+
+## es6的使用
+* 扩展运算符...：  将一个数组转为用逗号分隔的参数序列。eg：...mapActions(['getData','getState']) 转为：getData(){},getState(){}
+      
